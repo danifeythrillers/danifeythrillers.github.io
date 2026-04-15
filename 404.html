@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Redirecting...</title>
+      <style>
+          body { background-color: #000; color: #fff; font-family: serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        p { color: #888; font-size: 1.1rem; }
+    </style>
+      </head>
+      <body>
+          <div id="status">
+              <h1>404</h1>
+              <p>The shadows have reclaimed this page.</p>
+              <p style="font-size: 0.9rem; margin-top: 2rem;">Returning to the Author Hub...</p>
+          </div>
+
+          <script>
+              (function() {
+                  const path = window.location.pathname.toLowerCase();
+            const home = "https://danifeythrillers.github.io/";
+            const redirects = {
+                "/waiting": home,
+                                  "/waiting-links": home,
+                                  "/links": home
+                  };
+            const slug = path.replace(/\/$/, "");
+            if (redirects[slug]) {
+                window.location.replace(redirects[slug]);
+            } else {
+                setTimeout(() => { window.location.replace(home); }, 3000);
+            }
+})();
+    </script>
+      </body>
+      </html>
